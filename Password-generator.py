@@ -39,14 +39,29 @@ def generate_password(length):
     return generated_password
 
 
-# Prompt the user for password length
+# Prompt the user to make a choice, generate a password or Exit the program. Also, allow to user to work only with\
+# numbers, if not - return to the input.
 while True:
-    try:
-        length = int(input("Write desire length of the password: "))
-        break
-    except ValueError:
-        print("Please use only digits, words are not allowed.")
+    print("1. Generate a password")
+    print("2. Exit")
+    choice = input("Make your choice (1 or 2): ")
 
-# Generate and display the password
-password = generate_password(length)
-print("Your password have benn generated:", password)
+    if choice == "1":
+        while True:
+            try:
+                length = int(input("Enter please desired length of the password: "))
+                password = generate_password(length)
+                if password:
+                    break
+            except ValueError:
+                print("Please enter only digits. Words are now allowed here.")
+
+
+        print("Your password have benn generated:", password)
+        print()
+    elif choice == "2":
+        print("Thanks for using my password generator. Farewell")
+        break
+    else:
+        print("Wrong choice, try again.")
+        print()
