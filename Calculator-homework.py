@@ -13,61 +13,93 @@ def multiply(a, b):
 # Function to perform division
 def divide(a, b):
     if b == 0:
-        return None, "Error: You cannot divide by zero, make a right choice"
+        return None, "Error: You cannot divide by zero. Please make a valid choice."
     else:
         return a / b, None
 
 
-print("You are most welcome to use this calculator :)")
+# Input numbers from the user, I added "input_numbers" function which will convert\
+# the ipnut user data to the integers, and complex numbers instead of floats only\
+# If the convertion is successfull then the operation will work if not then error and ask user\
+# to prompt the right numbers.
 
-# Input numbers from the user, and give them a chance to use floating numbers\
-# to make calculator a little bit different from other students of DevOps01 course)
-while True:
-    try:
-        num1 = float(input("Waiting for the first number: "))
-        num2 = float(input("Waiting for the second number: "))
-        break
-# Strict all users to use only digits
-    except ValueError:
-        print("Invalid input. Please enter only digits.")
+def input_numbers():
+    while True:
+        num1 = input("Enter the first number: ")
+        num2 = input("Enter the second number: ")
 
-# Proposing to the user to make a choice
-print("Select an operation:")
-print("1. Addition")
-print("2. Subtraction")
-print("3. Multiplication")
-print("4. Division")
+        try:
+            num1 = int(num1)  # Try to convert to integer
+            num2 = int(num2)  # Try to convert to integer
+            return num1, num2
+        except ValueError:
+            try:
+                num1 = float(num1)  # Try to convert to float
+                num2 = float(num2)  # Try to convert to float
+                return num1, num2
+            except ValueError:
+                try:
+                    num1 = complex(num1)  # Try to convert to complex number
+                    num2 = complex(num2)  # Try to convert to complex number
+                    return num1, num2
+                except ValueError:
+                    print("Invalid input. Please enter valid numbers.")
 
-# Input function for the user, if the choice is something else instead of\
-# proposed below, break cycle with error, if result is 0 then continue.
-while True:
-    try:
-        operation = int(input("Make your choice (1-4): "))
-        if operation in [1, 2, 3, 4]:
-            break
-        else:
-            print("Invalid choice. Please select a number from 1 to 4.")
-    except ValueError:
-        print("Invalid input. Please enter a numeric choice.")
+# Proposing to the user to make a choice, added two new fields for the user input
 
-result = 0
-error = None
+def perform_operation(num1, num2):
+    while True:
+        print("\nSelect an operation:")
+        print("1. Addition")
+        print("2. Subtraction")
+        print("3. Multiplication")
+        print("4. Division")
+        print("5. Enter new numbers")
+        print("6. Exit")
 
-# Perform the selected operation
-if operation == 1:
-    result = add(num1, num2)
-elif operation == 2:
-    result = subtract(num1, num2)
-elif operation == 3:
-    result = multiply(num1, num2)
-elif operation == 4:
-    result, error = divide(num1, num2)
+# The block ensures that user`s input is within the valide range of choices.
+        try:
+            operation = int(input("Make your choice (1-6): "))
+
+            if operation == 6:
+                print("Thank you for using my calc. Farewell...")
+                return
+            elif operation == 5:
+                num1, num2 = input_numbers()
+                continue
+            elif operation not in [1, 2, 3, 4]:
+                print("Invalid choice. Please select a number from 1 to 6.")
+                continue
+
+            result = 0
+            error = None
+
+            if operation == 1:
+                result = add(num1, num2)
+            elif operation == 2:
+                result = subtract(num1, num2)
+            elif operation == 3:
+                result = multiply(num1, num2)
+            elif operation == 4:
+                result, error = divide(num1, num2)
 
 # Display the result or error message
-if error:
-    print(error)
-else:
-    print("The result is:", result)
+            if error:
+                print(error)
+            else:
+                print("The result is:", result)
 
-# End block
-print("Thanks for using my calculator @d.vetriak")
+            option = input("Enter 'c' to continue with new numbers, or press 6 to exit: ")
+
+            if option.lower() == 'c':
+                num1, num2 = input_numbers()
+            else:
+                print("Thanks for using my calculator @d.vetriak. Exiting...")
+                return
+
+        except ValueError:
+            print("Invalid input. Please enter a numeric choice.")
+
+
+num1, num2 = input_numbers()
+perform_operation(num1, num2)
