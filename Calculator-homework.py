@@ -63,10 +63,9 @@ def perform_operation(num1, num2):
 
             if operation == 6:
                 print("Thank you for using my calc. Farewell...")
-                return
+                return False
             elif operation == 5:
-                num1, num2 = input_numbers()
-                continue
+                return True
             elif operation not in [1, 2, 3, 4]:
                 print("Invalid choice. Please select a number from 1 to 6.")
                 continue
@@ -89,17 +88,29 @@ def perform_operation(num1, num2):
             else:
                 print("The result is:", result)
 
-            option = input("Enter 'c' to continue with new numbers, or press 6 to exit: ")
+            option = input("Enter 'c' to continue with new numbers, 'm' to go back to the main menu, or 'x' to exit: ")
 
             if option.lower() == 'c':
-                num1, num2 = input_numbers()
-            else:
+                return True
+            elif option.lower() == 'm':
+                return True
+            elif option.lower() == 'x':
                 print("Thanks for using my calculator @d.vetriak. Exiting...")
-                return
+                return False
+            else:
+                print("Invalid option. Please enter 'c', 'm', or 'x'.")
 
         except ValueError:
             print("Invalid input. Please enter a numeric choice.")
 
 
-num1, num2 = input_numbers()
-perform_operation(num1, num2)
+def main():
+    print("Welcome to the calculator!")
+
+    while True:
+        num1, num2 = input_numbers()
+        if not perform_operation(num1, num2):
+            break
+
+
+main()
