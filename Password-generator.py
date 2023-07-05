@@ -49,7 +49,7 @@ while True:
     if choice == "1":
         while True:
             try:
-                length = int(input("Enter please desired length of the password: "))
+                length = int(input("Enter desired length of the password but not less than 8 characters: "))
                 password = generate_password(length)
                 if password:
                     break
