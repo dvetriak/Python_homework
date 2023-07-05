@@ -12,8 +12,8 @@ def generate_password(length):
 
     # Limiting minimum length of password
     if length < 8:
-        print("Limit minimum password length with 8 characters.")
-        return
+        print("Minimum password length is 8 characters.")
+        return None
 
     # Initialize an empty list to store the password characters
     password = []
@@ -56,9 +56,9 @@ while True:
             except ValueError:
                 print("Please enter only digits. Words are now allowed here.")
 
-
-        print("Your password have benn generated:", password)
-        print()
+        if password:
+            print("Your password has been generated:", password)
+            print()
     elif choice == "2":
         print("Thanks for using my password generator. Farewell")
         break
