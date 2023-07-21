@@ -12,7 +12,7 @@ _________________________________________________
 _________________________________________________
 
 2) Activate the virtual environment:\
-   On Windows: **yourenv\Scripts\activate\**\
+   On Windows: **yourenv\Scripts\activate**\
    On macOS and Linux: **source yourenv/bin/activate**
 ___________________________________________________
 3) Install the required dependencies:\
