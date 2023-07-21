@@ -1,4 +1,10 @@
 Instructions to Set Up and Run the Code from HW4:
+
+_________________________________________________
+List of files for HW4:
+HW4.py - refactored password generator
+unittest_dvetriak - unittest file for HW4
+requirements - file with all necessary packages for virtual venv
 _________________________________________________
 1) Create a new virtual environment:
    Using venv (Python 3 standard library):
