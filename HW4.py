@@ -3,8 +3,10 @@ import string
 
 
 class PasswordGenerator:
-    def __init__(self, length=8, include_uppercase=True, include_lowercase=True,
-                 include_digits=True, include_special_chars=True):
+    def __init__(self, length=8, include_uppercase=True,
+                 include_lowercase=True,
+                 include_digits=True,
+                 include_special_chars=True):
         """
         Initializes the PasswordGenerator class with the specified attributes.
 
@@ -23,7 +25,8 @@ class PasswordGenerator:
 
     def generate_password(self):
         """
-        Generates and returns a random password based on the specified criteria.
+        Generates and returns a random password
+                based on the specified criteria.
 
         Returns:
             str: The generated password.
