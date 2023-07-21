@@ -1,8 +1,8 @@
 _____________________________________________________________________________________
-**HW1** - Create a Calculator
-**HW1 Advanced** - Create a Password Generator for Linux Users
-**HW3** - Password Generator program
-**HW4** - Code Styles, Linting, Documentation, Unit Testing, and Virtual Environments
+**HW1** - Create a Calculator\
+**HW1 Advanced** - Create a Password Generator for Linux Users\
+**HW3** - Password Generator program\
+**HW4** - Code Styles, Linting, Documentation, Unit Testing, and Virtual Environments\
 _____________________________________________________________________________________
 
 
