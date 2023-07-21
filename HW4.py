@@ -3,12 +3,17 @@ import string
 
 
 class PasswordGenerator:
-    def __init__(self, length=8, include_uppercase=True,
-                 include_lowercase=True,
-                 include_digits=True,
-                 include_special_chars=True):
+    def __init__(self, length=8, include_uppercase=True, include_lowercase=True,
+                 include_digits=True, include_special_chars=True):
         """
         Initializes the PasswordGenerator class with the specified attributes.
+
+        Args:
+            length (int, optional): Length of the generated password. Defaults to 8.
+            include_uppercase (bool, optional): Include uppercase letters in the password. Defaults to True.
+            include_lowercase (bool, optional): Include lowercase letters in the password. Defaults to True.
+            include_digits (bool, optional): Include digits in the password. Defaults to True.
+            include_special_chars (bool, optional): Include special characters in the password. Defaults to True.
         """
         self.length = length
         self.include_uppercase = include_uppercase
@@ -18,11 +23,10 @@ class PasswordGenerator:
 
     def generate_password(self):
         """
-        Generates and returns a random password
-                based on the specified criteria.
+        Generates and returns a random password based on the specified criteria.
 
         Returns:
-        - password (str): The generated password.
+            str: The generated password.
         """
         char_set = ''
         if self.include_uppercase:
@@ -45,6 +49,10 @@ class PasswordGenerator:
 def prompt_user_input():
     """
     Prompts the user to enter the desired password length and criteria.
+
+    Returns:
+        tuple: A tuple containing user-inputted values (length, include_uppercase,
+        include_lowercase, include_digits, include_special_chars).
     """
     length = int(input("Enter desired password length: "))
     include_uppercase = input("Any uppercase letters? (y/n): ").lower() == 'y'
@@ -57,6 +65,9 @@ def prompt_user_input():
 
 
 def main():
+    """
+    Main function to generate and display the random password based on user input.
+    """
     length, include_uppercase, include_lowercase, include_digits, \
         include_special_chars = prompt_user_input()
 
