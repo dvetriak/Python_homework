@@ -8,17 +8,18 @@ def run_command(command):
     else:
         return result.stderr.strip()
 
-# Function to install Python and pip
 def install_python():
     print("Installing Python and pip...")
-    # Instructions to follow steps from a reference document to install Python and pip
-    run_command("Follow the steps from the reference document to install python-3.7.2 and python-pip based on your OS.")
+    run_command("sudo apt-get update && sudo apt-get install -y python3.7 python3-pip")
 
-# Function to install MySQL
 def install_mysql():
     print("Installing MySQL...")
-    # Instructions to follow steps from a reference document to install MySQL
-    run_command("Follow the steps from the reference document to install mysql-8.0.15 based on your OS.")
+    run_command("sudo apt-get update && sudo apt-get install -y mysql-server")
+
+    # Secure the MySQL installation with auto-answers
+    print("Securing MySQL installation...")
+    input_text = "\n".join(["\n", "rootpassword", "y", "n", "y", "y", "y", "y"])
+    run_command("sudo mysql_secure_installation", input_text=input_text)
 
 # Function to set up a virtual environment
 def setup_virtualenv():
