@@ -2,15 +2,6 @@
 This repository contains a Django project setup script that automates the process of setting up 
 a development environment for a Django web application.
 
-# Prerequisites
-Before you begin, make sure you have the following prerequisites installed on your system:
-
-* Python 3.7
-* MySQL Server
-* Git
-* Virtualenv (installed globally)
-* Pip (Python package manager)
-
 # Getting Started
 
 Follow these steps to set up your development environment:
@@ -23,9 +14,18 @@ Follow these steps to set up your development environment:
 3) Run the setup script:
    python linux.py
 
+# Installation
+
 This script will guide you through the setup process, including installing Python and
-MySQL, creating a virtual environment, cloning the project repository, and installing the required
+MySQL, creating a virtual environment, cloning the project repository, installing the required
 packages, loading sample data into MySQL, editing project settings, and running the Django server.
+Follow instructions while installation is in progress. 
+
+* Python 3.7 and pip
+* MySQL Server - secure installation process  with auto-answers
+* virtualenv
+* Git - clone the repository with the project from GitHub
+* Requirements inside virtualenv from the cloned project
 
 4) After running the setup script, your development environment should be ready.
 You can access the Django application by opening http://localhost:8001 in your web browser.
