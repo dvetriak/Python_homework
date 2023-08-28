@@ -14,11 +14,11 @@ Before you begin, make sure you have the following prerequisites installed on yo
 # Getting Started
 
 Follow these steps to set up your development environment:
-1) Clone this repository to your local machine using the following command:
-   git clone https://github.com/YourUsername/YourRepository.git
+1) Clone this repository to your local machine using the following command (or you can just start the script it will be cloned automatically):
+   git clone https://github.com/Manisha-Bayya/simple-django-project.git
 
 2) Change into the repository directory:
-   cd YourRepository
+   cd TheProjectEnvironment
 
 3) Run the setup script:
    python linux.py
